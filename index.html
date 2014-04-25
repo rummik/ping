@@ -75,8 +75,6 @@ ping();
 		font-family: monospace;
 		overflow: hidden;
 		max-height: 1.5em;
-
-		-webkit-animation: pings 0.3s ease-in-out;
 	}
 
 .me {
@@ -105,7 +103,6 @@ ping();
 	position: relative;
 	width: 10px;
 	height: 10px;
-	top: 10px;
 	-webkit-animation: dots 1.25s infinite ease-in-out;
 	animation: dots 1.25s infinite ease-in-out;
 }
@@ -121,10 +118,9 @@ ping();
 	}
 
 @-webkit-keyframes dots {
-	25%  { top: 10px; background: transparent }
-	50%  { top: 0; background: #46d5ce }
-	75%  { top: 0; background: #ff74ef }
-	100% { top: -10px }
+	25%  { background: transparent }
+	50%  { background: #46d5ce }
+	75%  { background: #ff74ef }
 }
 
 @keyframes dots {
@@ -135,6 +131,10 @@ ping();
 }
 
 @-webkit-keyframes pings {
+	from { max-height: 1px; }
+}
+
+@keyframes pings {
 	from { max-height: 1px; }
 }
 </style>
