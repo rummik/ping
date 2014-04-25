@@ -71,7 +71,9 @@ body {
 }
 	.pings:before {
 		content: '';
-		background: -webkit-linear-gradient(bottom, white, transparent 0.5em, transparent 1em, white 6em);
+		background: -webkit-linear-gradient(bottom, white, rgba(255, 255, 255, 0) 0.5em, rgba(255, 255, 255, 0) 1em, white 6em);
+		background: -moz-linear-gradient(bottom, white, rgba(255, 255, 255, 0) 0.5em, rgba(255, 255, 255, 0) 1em, white 6em);
+		background: linear-gradient(bottom, white, rgba(255, 255, 255, 0) 0.5em, rgba(255, 255, 255, 0) 1em, white 6em);
 
 		position: absolute;
 		z-index: 1;
