@@ -21,15 +21,19 @@ var xhr;
 var start;
 
 function response() {
-	if (xhr.readyState != 4)
+	if (xhr.readyState != 4 || xhr.status != 200)
 		return;
 
 	var response = Date.now() - start + ' ms';
 	var whitespace = new Array(9 - response.length).join(' ');
 
-	document.querySelector('.pings')
-		.appendChild(document.createElement('div'))
-			.innerHTML = 'response time: ' + whitespace + response;
+	var pings = document.querySelector('.pings');
+
+	pings.appendChild(document.createElement('div'))
+		.innerHTML = 'response time: ' + whitespace + response;
+
+	if (pings.childNodes.length > 4)
+		pings.removeChild(pings.firstChild);
 
 	document.title = response;
 
@@ -37,13 +41,12 @@ function response() {
 }
 
 function ping() {
-	start = Date.now();
-
 	xhr = new XMLHttpRequest();
 	xhr.open('GET', '/ping');
 
 	xhr.onreadystatechange = response;
 
+	start = Date.now();
 	xhr.send();
 }
 
