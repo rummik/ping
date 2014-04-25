@@ -85,6 +85,17 @@ body {
 		overflow: hidden;
 		max-height: 1.5em;
 	}
+		div:before {
+			content: ' ';
+			position: absolute;
+			left: 0;
+			width: 14ch;
+			background: #fff;
+		}
+
+		.pings div:last-child:before {
+			width: 0;
+		}
 
 .me {
 	width: 192px;
